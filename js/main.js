@@ -11,3 +11,6 @@ function getRandomNumber(min, max) {
 function checkMaxLength(str, maxLength) {
   return str.length <= maxLength;
 }
+
+getRandomNumber(5, 10);
+checkMaxLength('Pass', 10);
