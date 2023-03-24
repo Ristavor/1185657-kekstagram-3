@@ -1,5 +1,5 @@
 import { checkStringLength } from './util.js';
-import { generatePhotos } from './data.js';
+import { renderPhotos } from './render.js';
 
 checkStringLength('25', 5);
-generatePhotos();
+renderPhotos();
