@@ -1,6 +1,7 @@
 import { checkStringLength } from './util.js';
 import { renderPhotos } from './render.js';
+import { enablePhotoLoad } from './picload.js';
 
 checkStringLength('25', 5);
 renderPhotos();
-//Задание 7 часть 2
+enablePhotoLoad();
