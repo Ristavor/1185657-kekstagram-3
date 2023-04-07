@@ -28,8 +28,6 @@ pristine.addValidator(
   'Комментарий обязателен и должен быть длиной от 20 до 140 символов'
 );
 
-imgForm.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
-  }
-});
+const getPristine = () => pristine;
+
+export {  getPristine  };
