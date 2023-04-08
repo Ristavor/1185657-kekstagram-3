@@ -11,8 +11,9 @@ const scaleControlValue = imgForm.querySelector('.scale__control--value');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 const errorWindow = errorTemplate.cloneNode(true);
 const errorWindowInner = errorWindow.querySelector('.success__inner');
+const errorWindowTitle = errorWindow.querySelector('h2');
 errorWindow.addEventListener('click', (evt) => {
-  if (evt.target !== errorWindowInner) {
+  if (evt.target !== errorWindowInner && evt.target !== errorWindowTitle) {
     errorWindow.classList.add('hidden');
   }
 });
@@ -28,8 +29,9 @@ errorButton.addEventListener('click', () => {
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
 const successWindow = successTemplate.cloneNode(true);
 const successWindowInner = successWindow.querySelector('.success__inner');
+const successWindowTitle = successWindow.querySelector('h2');
 successWindow.addEventListener('click', (evt) => {
-  if (evt.target !== successWindowInner) {
+  if (evt.target !== successWindowInner && evt.target !== successWindowTitle) {
     successWindow.classList.add('hidden');
   }
 });
