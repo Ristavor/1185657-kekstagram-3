@@ -1,6 +1,7 @@
 import './upload-window.js';
 import { getData } from './server.js';
 import { renderPhotos } from './render-photos.js';
+import { addUploadWindow } from './upload-window.js';
 
 const showErrorMessage = (error) => {
   const errorTemplate = document.querySelector('#error').content.querySelector('.error');
@@ -18,3 +19,5 @@ getData()
   .catch((error) => {
     showErrorMessage(error);
   });
+
+addUploadWindow();

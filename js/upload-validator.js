@@ -1,4 +1,6 @@
 import '/pristine/Pristine.min.js';
+
+
 const imgForm = document.querySelector('.img-upload__form');
 const hashTagReg = new RegExp('^#[а-яa-zA-ZА-ЯёЁ0-9]{1,19}$');
 
@@ -8,13 +10,9 @@ const pristine = new Pristine(imgForm, {
   errorTextClass: 'img-upload__error-text',
 });
 
-const validateHashTag = function (value) {
-  return hashTagReg.test(value) || value === '';
-};
+const validateHashTag = (value) => hashTagReg.test(value) || value === '';
 
-const validateComment = function (value) {
-  return value.length >= 20 && value.length <= 140;
-};
+const validateComment = (value) => value.length >= 20 && value.length <= 140;
 
 pristine.addValidator(
   imgForm.querySelector('.text__hashtags'),
