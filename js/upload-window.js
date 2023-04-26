@@ -18,6 +18,7 @@ const addUploadWindow = () => {
     bodyElement.classList.add('modal-open');
   });
 
+
   const closeWindow = () => {
     const imgUploadPreviewElement = imgFormElement.querySelector('.img-upload__preview');
     imgUploadPreviewElement.style.scale = '1';
@@ -33,6 +34,12 @@ const addUploadWindow = () => {
   const closeHandler = () => {
     closeWindow();
   };
+
+  errorWindowElement.addEventListener('click', (evt) => {
+    if (evt.target !== errorWindowElement.querySelector('.success__inner') && evt.target !== errorWindowElement.querySelector('h2')) {
+      closeHandler();
+    }
+  });
 
   imgUploadInputElement.addEventListener('change', () => {
     imgUploadOverlayElement.classList.remove('hidden');
