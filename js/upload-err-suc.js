@@ -1,34 +1,34 @@
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
-const errorWindow = errorTemplate.cloneNode(true);
-const errorWindowInner = errorWindow.querySelector('.success__inner');
-const errorWindowTitle = errorWindow.querySelector('h2');
-errorWindow.addEventListener('click', (evt) => {
-  if (evt.target !== errorWindowInner && evt.target !== errorWindowTitle) {
-    errorWindow.classList.add('hidden');
+const errorWindowElement = errorTemplate.cloneNode(true);
+const errorWindowInnerElement = errorWindowElement.querySelector('.success__inner');
+const errorWindowTitleElement = errorWindowElement.querySelector('h2');
+errorWindowElement.addEventListener('click', (evt) => {
+  if (evt.target !== errorWindowInnerElement && evt.target !== errorWindowTitleElement) {
+    errorWindowElement.classList.add('hidden');
   }
 });
-errorWindow.classList.add('hidden');
-const errorButton = errorWindow.querySelector('.error__button');
-errorButton.addEventListener('click', () => {
-  errorWindow.classList.add('hidden');
+errorWindowElement.classList.add('hidden');
+const errorButtonElement = errorWindowElement.querySelector('.error__button');
+errorButtonElement.addEventListener('click', () => {
+  errorWindowElement.classList.add('hidden');
 });
 
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
-const successWindow = successTemplate.cloneNode(true);
-const successWindowInner = successWindow.querySelector('.success__inner');
-const successWindowTitle = successWindow.querySelector('h2');
-successWindow.addEventListener('click', (evt) => {
-  if (evt.target !== successWindowInner && evt.target !== successWindowTitle) {
-    successWindow.classList.add('hidden');
+const successWindowElement = successTemplate.cloneNode(true);
+const successWindowInnerElement = successWindowElement.querySelector('.success__inner');
+const successWindowTitleElement = successWindowElement.querySelector('h2');
+successWindowElement.addEventListener('click', (evt) => {
+  if (evt.target !== successWindowInnerElement && evt.target !== successWindowTitleElement) {
+    successWindowElement.classList.add('hidden');
   }
 });
-successWindow.classList.add('hidden');
-const successButton = successWindow.querySelector('.success__button');
-successButton.addEventListener('click', () => {
-  successWindow.classList.add('hidden');
+successWindowElement.classList.add('hidden');
+const successButtonElement = successWindowElement.querySelector('.success__button');
+successButtonElement.addEventListener('click', () => {
+  successWindowElement.classList.add('hidden');
 });
 
-const getErrorWindow = () => errorWindow;
-const getSuccessWindow = () => successWindow;
+const getErrorWindow = () => errorWindowElement;
+const getSuccessWindow = () => successWindowElement;
 
 export {getErrorWindow, getSuccessWindow};

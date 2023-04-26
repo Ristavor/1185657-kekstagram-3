@@ -1,4 +1,3 @@
-import './upload-window.js';
 import { getData } from './server.js';
 import { renderPhotos } from './render-photos.js';
 import { addUploadWindow } from './upload-window.js';
