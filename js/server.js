@@ -8,4 +8,18 @@ const getData = () => fetch('https://27.javascript.pages.academy/kekstagram-simp
   })
   .then((response) => response.json());
 
-export { getData };
+const sendData = (form) => fetch(
+  'https://27.javascript.pages.academy/kekstagram-simple',
+  {
+    method: 'POST',
+    body: form,
+  })
+  .then((response) => {
+    if (response.ok) {
+      return response;
+    }
+    throw new Error(`${response.status} — ${response.statusText}`);
+  });
+
+
+export { getData, sendData };

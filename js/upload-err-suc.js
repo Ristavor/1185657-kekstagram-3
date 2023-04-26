@@ -1,6 +1,3 @@
-const body = document.querySelector('body');
-const imgForm = document.querySelector('.img-upload__form');
-const imgUploadOverlay = imgForm.querySelector('.img-upload__overlay');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 const errorWindow = errorTemplate.cloneNode(true);
 const errorWindowInner = errorWindow.querySelector('.success__inner');
@@ -11,11 +8,8 @@ errorWindow.addEventListener('click', (evt) => {
   }
 });
 errorWindow.classList.add('hidden');
-body.appendChild(errorWindow);
 const errorButton = errorWindow.querySelector('.error__button');
 errorButton.addEventListener('click', () => {
-  imgUploadOverlay.classList.remove('hidden');
-  body.classList.add('modal-open');
   errorWindow.classList.add('hidden');
 });
 
@@ -29,9 +23,12 @@ successWindow.addEventListener('click', (evt) => {
   }
 });
 successWindow.classList.add('hidden');
-body.appendChild(successWindow);
 const successButton = successWindow.querySelector('.success__button');
 successButton.addEventListener('click', () => {
   successWindow.classList.add('hidden');
 });
 
+const getErrorWindow = () => errorWindow;
+const getSuccessWindow = () => successWindow;
+
+export {getErrorWindow, getSuccessWindow};
