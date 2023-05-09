@@ -31,13 +31,13 @@ const addUploadWindow = () => {
     imgFormElement.querySelector('.text__hashtags').value = '';
     imgFormElement.querySelector('#effect-none').checked = true;
   };
-  const closeHandler = () => {
+  const handleClose = () => {
     closeWindow();
   };
 
   errorWindowElement.addEventListener('click', (evt) => {
     if (evt.target !== errorWindowElement.querySelector('.success__inner') && evt.target !== errorWindowElement.querySelector('h2')) {
-      closeHandler();
+      handleClose();
     }
   });
 
@@ -47,10 +47,10 @@ const addUploadWindow = () => {
     imgFormElement.querySelector('#effect-none').checked = true;
   });
 
-  imgFormElement.querySelector('.img-upload__cancel').addEventListener('click', closeHandler);
+  imgFormElement.querySelector('.img-upload__cancel').addEventListener('click', handleClose);
   document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
-      closeHandler();
+      handleClose();
       errorWindowElement.classList.add('hidden');
       successWindowElement.classList.add('hidden');
     }
@@ -68,7 +68,7 @@ const addUploadWindow = () => {
       imgUploadInputElement.disabled = true;
       sendData(form)
         .then(() => {
-          closeHandler();
+          handleClose();
           successWindowElement.classList.remove('hidden');
           imgUploadInputElement.disabled = false;
         })
@@ -78,13 +78,13 @@ const addUploadWindow = () => {
         });
     }
   };
-  const submitHandler = (to) => {
+  const handeSubmmit = (to) => {
     submit(to);
   };
   imgFormElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const from = new FormData(evt.target);
-    submitHandler(from);
+    handeSubmmit(from);
   });
 };
 
