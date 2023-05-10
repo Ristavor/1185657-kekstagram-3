@@ -13,9 +13,18 @@ const addUploadWindow = () => {
   const successWindowElement = getSuccessWindow();
   bodyElement.appendChild(errorWindowElement);
   bodyElement.appendChild(successWindowElement);
-  errorWindowElement.querySelector('.error__button').addEventListener('click', () => {
-    imgUploadOverlayElement.classList.remove('hidden');
+
+  const reopenWindow = () => {
     bodyElement.classList.add('modal-open');
+    imgUploadOverlayElement.classList.remove('hidden');
+  };
+
+  const handleError = () => {
+    reopenWindow();
+  };
+
+  errorWindowElement.querySelector('.error__button').addEventListener('click', () => {
+    handleError();
   });
 
 
@@ -36,7 +45,7 @@ const addUploadWindow = () => {
   };
 
   errorWindowElement.addEventListener('click', (evt) => {
-    if (evt.target !== errorWindowElement.querySelector('.success__inner') && evt.target !== errorWindowElement.querySelector('h2')) {
+    if (evt.target !== errorWindowElement.querySelector('.error__inner') && evt.target !== errorWindowElement.querySelector('h2') && evt.target !== errorWindowElement.querySelector('.error__button')) {
       handleClose();
     }
   });
@@ -44,7 +53,6 @@ const addUploadWindow = () => {
   imgUploadInputElement.addEventListener('change', () => {
     imgUploadOverlayElement.classList.remove('hidden');
     bodyElement.classList.add('modal-open');
-    imgFormElement.querySelector('#effect-none').checked = true;
   });
 
   imgFormElement.querySelector('.img-upload__cancel').addEventListener('click', handleClose);

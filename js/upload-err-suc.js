@@ -1,6 +1,6 @@
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 const errorWindowElement = errorTemplate.cloneNode(true);
-const errorWindowInnerElement = errorWindowElement.querySelector('.success__inner');
+const errorWindowInnerElement = errorWindowElement.querySelector('.error__inner');
 const errorWindowTitleElement = errorWindowElement.querySelector('h2');
 errorWindowElement.addEventListener('click', (evt) => {
   if (evt.target !== errorWindowInnerElement && evt.target !== errorWindowTitleElement) {
